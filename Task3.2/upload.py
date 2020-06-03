@@ -5,11 +5,13 @@ import uuid
 from urllib.parse import unquote_plus
 import cv2
 import numpy as np
+import os
 
 # debug
 import json
 
 s3_client = boto3.client('s3')
+dynamo_db = boto3.resource('dynamodb')
 yolov3_download_url = 'https://pjreddie.com/media/files/yolov3.weights'
 model = 'yolov3.weights'
 cfg = 'yolov3.cfg'
@@ -29,19 +31,33 @@ with open(class_file, 'rt') as f:
 
 
 def lambda_handler(event, context):
+    result=[]
     for record in event['Records']:
         bucket = record['s3']['bucket']['name']
         key = unquote_plus(record['s3']['object']['key'])
         tmpkey = key.replace('/', '')
-        download_path = '/tmp/{}{}'.format(uuid.uuid4(), tmpkey)
+        download_path = 'tmp/{}{}'.format(uuid.uuid4(), tmpkey)
         print(bucket, key, download_path)
         s3_client.download_file(bucket, key, download_path)
-        # with open(download_path) as file:
-        #     image = file.read()
-        #     detect_image(image)
-
+        with open(download_path, "rb") as file:
+            image = file.read()
+            result_list = detect_image(image)
+            print(result_list)
+            image_s3_url = "https://{}.s3.amazonaws.com/{}".format(bucket, key)
+            table = dynamo_db.Table('FIT5225Assignment2')
+            response = table.put_item(
+                Item={
+                    'id':"{}{}".format(uuid.uuid4(), tmpkey),
+                    'tag':result_list,
+                    'link':image_s3_url
+                }
+            )
+            result.append(response)
+    print(result)
+    return result
 
 def detect_image(image):
+    result_map = []
     nparr = np.fromstring(image, np.uint8)
     img_np = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     blob = cv2.dnn.blobFromImage(img_np, 1 / 255, (416, 416), [0, 0, 0], 1, crop=False)
@@ -57,8 +73,8 @@ def detect_image(image):
             if confidence > confThreshold:
                 values[classes[classId]] = confidence
     for key, value in values.items():
-        detected_object = {"label": key, "accuracy": str(value)}
-        # result_map.get("objects").append(detected_object)
+        result_map.append(key)
+    return result_map
 
 
 def _get_output_layers(cv_detection):
