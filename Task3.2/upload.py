@@ -1,11 +1,8 @@
 import boto3
-import os
-import sys
 import uuid
 from urllib.parse import unquote_plus
 import cv2
 import numpy as np
-import os
 
 # debug
 import json
@@ -13,7 +10,7 @@ import json
 s3_client = boto3.client('s3')
 dynamo_db = boto3.resource('dynamodb')
 yolov3_download_url = 'https://pjreddie.com/media/files/yolov3.weights'
-model = 'yolov3.weights'
+model = '/tmp/yolov3.weights'
 cfg = 'yolov3.cfg'
 class_file = "coco.names"
 classes = None
@@ -22,16 +19,14 @@ with open(class_file, 'rt') as f:
     classes = f.read().rstrip('\n').split('\n')
 
 
-# def download_yolov3():
-#     print('downloading yolov3.weight...')
-#     r = reqests.get(yolov3_download_url)
-#     with open(model, "wb") as file:
-#         file.write(r.content)
-#     print('downloading yolov3.weight successfully')
+def download_yolov3():
+    bucket="fit5225-ass2"
+    key="yolov3.weights"
+    s3_client.download_file(bucket, key, model)
 
 
 def lambda_handler(event, context):
-    result=[]
+    result = []
     for record in event['Records']:
         bucket = record['s3']['bucket']['name']
         key = unquote_plus(record['s3']['object']['key'])
@@ -47,14 +42,15 @@ def lambda_handler(event, context):
             table = dynamo_db.Table('FIT5225Assignment2')
             response = table.put_item(
                 Item={
-                    'id':"{}{}".format(uuid.uuid4(), tmpkey),
-                    'tag':result_list,
-                    'link':image_s3_url
+                    'id': "{}{}".format(uuid.uuid4(), tmpkey),
+                    'tag': result_list,
+                    'link': image_s3_url
                 }
             )
             result.append(response)
     print(result)
     return result
+
 
 def detect_image(image):
     result_map = []
