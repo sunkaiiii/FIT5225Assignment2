@@ -1,7 +1,16 @@
+import boto3
+import os
+import sys
+import uuid
+from urllib.parse import unquote_plus
 import cv2
 import numpy as np
+
+# debug
 import json
 
+s3_client = boto3.client('s3')
+yolov3_download_url = 'https://pjreddie.com/media/files/yolov3.weights'
 model = 'yolov3.weights'
 cfg = 'yolov3.cfg'
 class_file = "coco.names"
@@ -11,8 +20,25 @@ with open(class_file, 'rt') as f:
     classes = f.read().rstrip('\n').split('\n')
 
 
-def find_objects(event, context):
-    image = event['image']
+# def download_yolov3():
+#     print('downloading yolov3.weight...')
+#     r = reqests.get(yolov3_download_url)
+#     with open(model, "wb") as file:
+#         file.write(r.content)
+#     print('downloading yolov3.weight successfully')
+
+
+def lambda_handler(event, context):
+    for record in event['Records']:
+        bucket = record['s3']['bucket']['name']
+        key = unquote_plus(record['s3']['object']['key'])
+        tmpkey = key.replace('/', '')
+        download_path = '/tmp/{}{}'.format(uuid.uuid4(), tmpkey)
+        print(bucket, key, download_path)
+        s3_client.download_file(bucket, key, download_path)
+        # with open(download_path) as file:
+        #     image = file.read()
+        #     detect_image(image)
 
 
 def detect_image(image):
@@ -38,3 +64,8 @@ def detect_image(image):
 def _get_output_layers(cv_detection):
     layerNames = cv_detection.getLayerNames()
     return [layerNames[i[0] - 1] for i in cv_detection.getUnconnectedOutLayers()]
+
+
+if __name__ == "__main__":
+    with open("test.json", "r") as file:
+        lambda_handler(json.load(file), 1)
