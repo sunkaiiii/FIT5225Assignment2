@@ -11,8 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e1996e3-1c0f-4b58-8386-11695bff609e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Task3.2/S51223-093756.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task3.2/UploadImageToS3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task3.3/QueryImage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task3.3/test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +52,29 @@
       <recent name="C:\Users\sunkai\Documents\GitHub\FIT5225Assignment2\Task3.2" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.UploadImageToS3">
+  <component name="RunManager" selected="Python.QueryImage">
+    <configuration name="QueryImage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FIT5225Assignment2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task3.3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task3.3/QueryImage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="FIT5225Assignment2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,6 +165,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.QueryImage" />
         <item itemvalue="Python.UploadImageToS3" />
         <item itemvalue="Python.upload" />
         <item itemvalue="Python.f1" />
@@ -162,7 +185,9 @@
       <workItem from="1591086523558" duration="308000" />
       <workItem from="1591086853820" duration="1178000" />
       <workItem from="1591088062329" duration="14569000" />
-      <workItem from="1591357694652" duration="3314000" />
+      <workItem from="1591357694652" duration="5003000" />
+      <workItem from="1591508891072" duration="9000" />
+      <workItem from="1591508935683" duration="3343000" />
     </task>
     <servers />
   </component>
@@ -190,38 +215,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="705" y="319" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591186027919" />
-    <state width="1876" height="203" key="GridCell.Tab.0.bottom" timestamp="1591361011570">
+    <state width="1876" height="202" key="GridCell.Tab.0.bottom" timestamp="1591512303393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="203" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591361011570" />
-    <state width="1876" height="203" key="GridCell.Tab.0.center" timestamp="1591361011570">
+    <state width="1876" height="202" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591512303393" />
+    <state width="1876" height="202" key="GridCell.Tab.0.center" timestamp="1591512303393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="203" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591361011570" />
-    <state width="1876" height="203" key="GridCell.Tab.0.left" timestamp="1591361011570">
+    <state width="1876" height="202" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591512303393" />
+    <state width="1876" height="202" key="GridCell.Tab.0.left" timestamp="1591512303393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="203" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591361011570" />
-    <state width="1876" height="203" key="GridCell.Tab.0.right" timestamp="1591361011570">
+    <state width="1876" height="202" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591512303393" />
+    <state width="1876" height="202" key="GridCell.Tab.0.right" timestamp="1591512303393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="203" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591361011570" />
-    <state width="1876" height="347" key="GridCell.Tab.1.bottom" timestamp="1591265491188">
+    <state width="1876" height="202" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591512303393" />
+    <state width="1876" height="347" key="GridCell.Tab.1.bottom" timestamp="1591511579233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591265491188" />
-    <state width="1876" height="347" key="GridCell.Tab.1.center" timestamp="1591265491188">
+    <state width="1876" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591511579233" />
+    <state width="1876" height="347" key="GridCell.Tab.1.center" timestamp="1591511579233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591265491188" />
-    <state width="1876" height="347" key="GridCell.Tab.1.left" timestamp="1591265491188">
+    <state width="1876" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591511579233" />
+    <state width="1876" height="347" key="GridCell.Tab.1.left" timestamp="1591511579233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591265491188" />
-    <state width="1876" height="347" key="GridCell.Tab.1.right" timestamp="1591265491188">
+    <state width="1876" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591511579233" />
+    <state width="1876" height="347" key="GridCell.Tab.1.right" timestamp="1591511579233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591265491188" />
+    <state width="1876" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591511579233" />
     <state x="445" y="440" width="773" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1591163472180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -241,5 +266,6 @@
     <SUITE FILE_PATH="coverage/FIT5225Assignment2$UploadImageToS3.coverage" NAME="UploadImageToS3 Coverage Results" MODIFIED="1591361011564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task3.2" />
     <SUITE FILE_PATH="coverage/FIT5225Assignment2$upload.coverage" NAME="upload Coverage Results" MODIFIED="1591182441761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task3.2" />
     <SUITE FILE_PATH="coverage/FIT5225Assignment2$f1.coverage" NAME="f1 Coverage Results" MODIFIED="1591088069980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FIT5225Assignment2$QueryImage.coverage" NAME="QueryImage Coverage Results" MODIFIED="1591512303387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task3.3" />
   </component>
 </project>
