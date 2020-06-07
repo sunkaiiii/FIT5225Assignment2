@@ -1,5 +1,4 @@
 import json
-
 import boto3
 from boto3.dynamodb.conditions import Attr, Or
 
@@ -19,7 +18,11 @@ def lambda_handler(event, context):
     )
     result = {"links": []}
     [result["links"].append(item["link"]) for item in response["Items"]]
-    return result
+    return {
+        "statusCode": 200,
+        "body": json.dumps(result),
+        "isBase64Encoded": "false"
+    }
 
 
 if __name__ == '__main__':
