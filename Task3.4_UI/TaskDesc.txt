@@ -1,0 +1,5 @@
+3.4 User Interface
+You can design a simple user interface (UI) that includes the following pages: login, sign-up, upload images, submit queries, 
+and view query results. A UI makes your system easier and more enjoyable to use. 
+However, you have the option not to create a UI for application or have UI for some parts and not the others. 
+If you opt to ignore UI or full-fledged UI, you can write scripts (e.g., Python) to handle communications with your application APIs.
