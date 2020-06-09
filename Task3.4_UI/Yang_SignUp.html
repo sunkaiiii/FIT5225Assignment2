@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Service Sign UP</title>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://v1.vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview@1.0.1/dist/iview.min.js"></script>
+</head>
+<body>
+
+    
+    <center>
+    <h1><b>AWS Image Detection & Query Web Service</b></h1>
+    <hr/>
+    <br>
+    <img src="AWS_careers.jpg" width="200px" height="120">
+    <br>
+    
+    </font>
+    </p>
+    </center>
+<div id="app">
+
+<Row>
+        <i-col span="12">
+<div>
+    
+<i-form :model="formItem" :label-width="90">
+    <p><font color="purple" size="5" face="Arial" >Create a new Account :) <br><br>
+        <Form-item label="First name">
+            <i-input :value.sync="formItem.input" placeholder="Please enter your Firstname"></i-input>
+        </Form-item>
+        <Form-item label="Surname">
+            <i-input :value.sync="formItem.input" placeholder="Please enter your Surname"></i-input>
+        </Form-item>
+        <Form-item label="Username">
+            <i-input :value.sync="formItem.input" placeholder="Please enter your email as future login"></i-input>
+        </Form-item>
+        <Form-item label="Phone">
+            <i-input :value.sync="formItem.input" placeholder="Please enter your phone number"></i-input>
+        </Form-item>
+        <Form-item label="Password">
+            <i-input :value.sync="formItem.input" placeholder="Please enter your password"></i-input>
+        </Form-item>
+        <Form-item label="Re-enter Password">
+            <i-input :value.sync="formItem.input" placeholder="Please enter your password again"></i-input>
+        </Form-item>
+
+        <Form-item label="Location">
+            <i-select :model.sync="formItem.select" placeholder="Please select">
+                <i-option value="beijing">Ohio</i-option>
+                <i-option value="shanghai">California</i-option>
+                <i-option value="shenzhen">HongKong</i-option>
+                <i-option value="shenzhen">Tokyo</i-option>
+                <i-option value="shenzhen">HongKong</i-option>
+                <i-option value="shenzhen">Melbourne</i-option>
+            </i-select>
+        </Form-item>
+        <Form-item label="Birthday">
+            <Row>
+                <i-col span="11">
+                    <Date-picker type="date" placeholder="Select date" :value.sync="formItem.date"></Date-picker>
+                </i-col>
+            
+            </Row>
+        </Form-item>
+        <Form-item label="Gender">
+            <Radio-group :model.sync="formItem.radio">
+                <Radio value="male">Male</Radio>
+                <Radio value="female">Female</Radio>
+                <Radio value="female">Secret</Radio>
+            </Radio-group>
+        </Form-item>
+
+        <Form-item label="Interest">
+            <Checkbox-group :model.sync="formItem.checkbox">
+                <Checkbox value="Cloud service"></Checkbox>
+                <Checkbox value="Programming"></Checkbox>
+                <Checkbox value="Big data"></Checkbox>
+                <Checkbox value="Artificial Intelligence"></Checkbox>
+            </Checkbox-group>
+        </Form-item>
+
+        <Form-item label="Subscribe our service">
+            <Switch :checked.sync="formItem.switch" size="large">
+                <span slot="open">Yes</span>
+                <span slot="close">No</span>
+            </Switch>
+        </Form-item>
+
+        <Form-item label="Profile">
+            <i-input :value.sync="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Please input..."></i-input>
+        </Form-item>
+        <Form-item>
+            <i-button type="primary">Submit</i-button>
+            <i-button type="ghost" style="margin-left: 30px">Cancel</i-button>
+        </Form-item>
+    </i-form>
+</div>
+		</i-col>
+    </Row>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+                formItem: {
+                    input: '',
+                    select: '',
+                    radio: 'male',
+                    checkbox: [],
+                    switch: true,
+                    date: '',
+                    time: '',
+                    slider: [20, 50],
+                    textarea: ''
+                }
+            },
+        methods: {
+
+        }
+    })
+  </script>
+</body>
+</html>

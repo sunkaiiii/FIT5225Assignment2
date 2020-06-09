@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Service Login</title>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://v1.vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview@1.0.1/dist/iview.min.js"></script>
+</head>
+<body>
+    
+    <center>
+    <h1><b>AWS Image Detection & Query Web Service</b></h1>
+    <hr/>
+    <br>
+    <img src="AWS_careers.jpg" width="200px" height="120">
+    <br>
+    
+    
+    <p><font color="purple" size="5" face="Arial" >Welcome to cloud service log in page :)</font>
+        </p>
+    </center>
+<div id="app">
+
+<Row>
+        <i-col span="10">
+<div>
+    
+<i-form :model="formItem" :label-width="90">
+    
+    <br><br>
+        <Form-item label="Username">
+            <i-input :value.sync="formItem.input" placeholder="Please enter your username"></i-input>
+        </Form-item>
+
+        <Form-item label="Password">
+            <i-input :value.sync="formItem.input" placeholder="Please enter your password"></i-input>
+        </Form-item>
+
+        <Form-item label="">
+            <Checkbox-group :model.sync="formItem.checkbox">
+                <Checkbox value="Agree Terms of Use"></Checkbox>
+            </Checkbox-group>
+        </Form-item>
+
+        <Form-item>
+            <i-button type="primary">Login</i-button> &nbsp &nbsp  
+            <i-button type="ghost" style="margin-left: 20px">Reset</i-button>
+        </Form-item>
+    </i-form>
+
+</div>
+		</i-col>
+    </Row>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+                formItem: {
+                    input: '',
+                    select: '',
+                    radio: 'male',
+                    checkbox: [],
+                    switch: true,
+                    date: '',
+                    time: '',
+                    slider: [20, 50],
+                    textarea: ''
+                }
+            },
+        methods: {
+
+        }
+    })
+  </script>
+
+
+</body>
+</html>

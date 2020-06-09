@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Service Image Upload</title>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://v1.vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview@1.0.1/dist/iview.min.js"></script>
+</head>
+<body>
+
+    <center>
+        <h1><b>AWS Image Detection & Query Web Service</b></h1>
+        <hr/>
+        <br>
+        <img src="AWS_careers.jpg" width="200px" height="120">
+        <br>
+        
+        
+        <p><font color="purple" size="5" face="Arial" >Welcome to Upload Page :)</font><br>
+            </p>
+        </center>
+<div id="app">
+
+<Row>
+        <i-col span="12">
+<div>
+<i-form :model="formItem" :label-width="90">
+        <Form-item label="Text to input">
+            <i-input :value.sync="formItem.input" placeholder="Please input"></i-input>
+        </Form-item>
+
+        <Form-item label="Upload Date">
+            <Row>
+                <i-col span="11">
+                    <Date-picker type="date" placeholder="Select Date" :value.sync="formItem.date"></Date-picker>
+                </i-col>
+            </Row>
+        </Form-item>
+
+        <Form-item label="Image Upload">
+        <template>
+            <Upload action="//jsonplaceholder.typicode.com/posts/">
+                <i-button type="ghost" icon="ios-cloud-upload-outline">Upload Image</i-button>
+            </Upload>
+        </template>
+        </Form-item>
+        <script>
+            export default {
+                
+            }
+        </script>
+
+        <Form-item label="Text to input">
+            <i-input :value.sync="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Please input..."></i-input>
+        </Form-item>
+        <Form-item>
+            <i-button type="primary">Submit</i-button>
+            <i-button type="ghost" style="margin-left: 8px">Cancel</i-button>
+        </Form-item>
+
+        
+        
+    </i-form>
+</div>
+		</i-col>
+    </Row>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+                formItem: {
+                    input: '',
+                    select: '',
+                    radio: 'male',
+                    checkbox: [],
+                    switch: true,
+                    date: '',
+                    time: '',
+                    slider: [20, 50],
+                    textarea: ''
+                }
+            },
+        methods: {
+
+        }
+    })
+  </script>
+</body>
+</html>
