@@ -1,0 +1,6 @@
+{
+  "queryStringParameters": {
+    "tag1": "person",
+    "tag2":"sports ball"
+  }
+}
