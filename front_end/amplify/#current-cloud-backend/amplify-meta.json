@@ -1,0 +1,38 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-cloudapp-dev-123658-authRole",
+			"UnauthRoleArn": "arn:aws:iam::685556107156:role/amplify-cloudapp-dev-123658-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::685556107156:role/amplify-cloudapp-dev-123658-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "amplify-cloudapp-dev-123658-deployment",
+			"UnauthRoleName": "amplify-cloudapp-dev-123658-unauthRole",
+			"StackName": "amplify-cloudapp-dev-123658",
+			"StackId": "arn:aws:cloudformation:us-east-1:685556107156:stack/amplify-cloudapp-dev-123658/6ef543c0-ab8c-11ea-ae4f-0e794c84352f",
+			"AmplifyAppId": "d1sed67eum7kly"
+		}
+	},
+	"auth": {
+		"cloudapps": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cloudapp-dev-123658-deployment/amplify-cfn-templates/auth/cloudapps-cloudformation-template.yml",
+				"logicalId": "authcloudapps"
+			},
+			"lastPushTimeStamp": "2020-06-11T02:44:33.181Z",
+			"output": {
+				"GoogleWebClient": "809481499442-vimc5m64loseslleop38cl0202l3o6kb.apps.googleusercontent.com",
+				"AppClientSecret": "6ls8g9dq954ire3hapr40lch8evqvjnourjvvolipu64a45rh59",
+				"UserPoolId": "us-east-1_Ubi7Ypk9W",
+				"AppClientIDWeb": "29kppljorqs89kpo3bmfv84qq7",
+				"AppClientID": "4cm63g38accpf34sn4pdtsn71j",
+				"IdentityPoolId": "us-east-1:05a5ac57-f534-4f4c-b34f-a889b0f05d2d",
+				"IdentityPoolName": "cloudusers__dev",
+				"UserPoolName": "cloudimgusers"
+			},
+			"lastPushDirHash": "raXnooMSLT8h9ZCceFnnKSqCPRg="
+		}
+	}
+}
