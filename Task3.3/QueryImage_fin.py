@@ -19,7 +19,7 @@ def lambda_handler(event, context):
         else:
             filter_expression = And(*[(Attr("tag").contains(value)) for value in tags])
         dynamodb = boto3.resource("dynamodb")
-        table = dynamodb.Table("todo")
+        table = dynamodb.Table("FIT5225Assignment2")
         response = table.scan(
             FilterExpression=filter_expression
         )
