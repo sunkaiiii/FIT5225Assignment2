@@ -1,16 +1,16 @@
 import React from 'react';
-import { AmplifyAuthenticator, AmplifySignOut, AmplifySignIn, AmplifySignUp } from '@aws-amplify/ui-react';
+import { AmplifyAuthenticator, AmplifySignOut,  AmplifySignUp } from '@aws-amplify/ui-react';
 import home from './home.jpg';
 import history from './history';
-import Amplify from 'aws-amplify';
-import awsmobile from './aws-exports';
+
+
 import './App.css';
 
 function App() {
   const federated = {
     googleClientId: "809481499442-vimc5m64loseslleop38cl0202l3o6kb.apps.googleusercontent.com",
     oauthConfig: {
-      redirectSignIn: "http://localhost:3000/",
+      redirectSignIn: "http://localhost:3000/", //   if local test set it as:   redirectSignIn: "http://localhost:3000/",  online :https://master.d3nspps4hsc7d5.amplifyapp.com/
       redirectSignOut: "http://localhost:3000/",
       scope:[
         "email",
@@ -77,7 +77,7 @@ function App() {
     
     <img
         src={home}
-        alt=""
+        alt="kk"
         className="img-home"
         />   
   <h1>welcome to image detection system</h1>
@@ -88,5 +88,5 @@ function App() {
   </AmplifyAuthenticator>
   );
 }
-Amplify.configure(awsmobile);
+
 export default App;

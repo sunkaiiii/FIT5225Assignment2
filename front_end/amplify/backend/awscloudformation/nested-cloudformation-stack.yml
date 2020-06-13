@@ -68,15 +68,15 @@
 				}
 			}
 		},
-		"authcloudapps": {
+		"authcloudappUser": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/amplify-cloudapp-dev-123658-deployment/amplify-cfn-templates/auth/cloudapps-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/amplify-cloudapp-dev-221010-deployment/amplify-cfn-templates/auth/cloudappUser-cloudformation-template.yml",
 				"Parameters": {
-					"identityPoolName": "cloudusers",
+					"identityPoolName": "cloudUser",
 					"allowUnauthenticatedIdentities": false,
-					"resourceNameTruncated": "clouda188b4fc6",
-					"userPoolName": "cloudimgusers",
+					"resourceNameTruncated": "cloudaf46e5358",
+					"userPoolName": "cloudUsers",
 					"autoVerifiedAttributes": "email",
 					"mfaConfiguration": "OFF",
 					"mfaTypes": "SMS Text Message",
@@ -92,13 +92,12 @@
 					"userpoolClientRefreshTokenValidity": 30,
 					"userpoolClientWriteAttributes": "email,family_name,given_name",
 					"userpoolClientReadAttributes": "email,family_name,given_name",
-					"userpoolClientLambdaRole": "clouda188b4fc6_userpoolclient_lambda_role",
+					"userpoolClientLambdaRole": "cloudaf46e5358_userpoolclient_lambda_role",
 					"userpoolClientSetAttributes": true,
 					"useDefault": "manual",
 					"authSelections": "identityPoolAndUserPool",
-					"resourceName": "cloudapps",
+					"resourceName": "cloudappUser",
 					"thirdPartyAuth": true,
-					"authProviders": "accounts.google.com",
 					"usernameAttributes": "email",
 					"userPoolGroups": false,
 					"adminQueries": false,
@@ -122,6 +121,7 @@
 					},
 					"permissions": "",
 					"dependsOn": "",
+					"authProviders": "accounts.google.com",
 					"googleClientId": "809481499442-vimc5m64loseslleop38cl0202l3o6kb.apps.googleusercontent.com",
 					"env": "dev"
 				}
@@ -131,7 +131,7 @@
 			"DependsOn": [
 				"AuthRole",
 				"UnauthRole",
-				"authcloudapps"
+				"authcloudappUser"
 			],
 			"Type": "AWS::Lambda::Function",
 			"Properties": {
@@ -214,7 +214,7 @@
 				},
 				"idpId": {
 					"Fn::GetAtt": [
-						"authcloudapps",
+						"authcloudappUser",
 						"Outputs.IdentityPoolId"
 					]
 				},

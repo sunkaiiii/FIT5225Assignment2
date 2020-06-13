@@ -1,38 +1,38 @@
 {
 	"providers": {
 		"awscloudformation": {
-			"AuthRoleName": "amplify-cloudapp-dev-123658-authRole",
-			"UnauthRoleArn": "arn:aws:iam::685556107156:role/amplify-cloudapp-dev-123658-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::685556107156:role/amplify-cloudapp-dev-123658-authRole",
+			"AuthRoleName": "amplify-cloudapp-dev-221010-authRole",
+			"UnauthRoleArn": "arn:aws:iam::685556107156:role/amplify-cloudapp-dev-221010-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::685556107156:role/amplify-cloudapp-dev-221010-authRole",
 			"Region": "us-east-1",
-			"DeploymentBucketName": "amplify-cloudapp-dev-123658-deployment",
-			"UnauthRoleName": "amplify-cloudapp-dev-123658-unauthRole",
-			"StackName": "amplify-cloudapp-dev-123658",
-			"StackId": "arn:aws:cloudformation:us-east-1:685556107156:stack/amplify-cloudapp-dev-123658/6ef543c0-ab8c-11ea-ae4f-0e794c84352f",
-			"AmplifyAppId": "d1sed67eum7kly"
+			"DeploymentBucketName": "amplify-cloudapp-dev-221010-deployment",
+			"UnauthRoleName": "amplify-cloudapp-dev-221010-unauthRole",
+			"StackName": "amplify-cloudapp-dev-221010",
+			"StackId": "arn:aws:cloudformation:us-east-1:685556107156:stack/amplify-cloudapp-dev-221010/abd0a360-aca5-11ea-9755-0e765a9edd1f",
+			"AmplifyAppId": "d3nspps4hsc7d5"
 		}
 	},
 	"auth": {
-		"cloudapps": {
+		"cloudappUser": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
+			"lastPushTimeStamp": "2020-06-12T12:31:38.907Z",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cloudapp-dev-123658-deployment/amplify-cfn-templates/auth/cloudapps-cloudformation-template.yml",
-				"logicalId": "authcloudapps"
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-cloudapp-dev-221010-deployment/amplify-cfn-templates/auth/cloudappUser-cloudformation-template.yml",
+				"logicalId": "authcloudappUser"
 			},
-			"lastPushTimeStamp": "2020-06-11T02:44:33.181Z",
 			"output": {
 				"GoogleWebClient": "809481499442-vimc5m64loseslleop38cl0202l3o6kb.apps.googleusercontent.com",
-				"AppClientSecret": "6ls8g9dq954ire3hapr40lch8evqvjnourjvvolipu64a45rh59",
-				"UserPoolId": "us-east-1_Ubi7Ypk9W",
-				"AppClientIDWeb": "29kppljorqs89kpo3bmfv84qq7",
-				"AppClientID": "4cm63g38accpf34sn4pdtsn71j",
-				"IdentityPoolId": "us-east-1:05a5ac57-f534-4f4c-b34f-a889b0f05d2d",
-				"IdentityPoolName": "cloudusers__dev",
-				"UserPoolName": "cloudimgusers"
+				"AppClientSecret": "959q18hq30f0pi2clgquuu0qkkec1pl8j0g7da5ikin5efu2p7o",
+				"UserPoolId": "us-east-1_8q1Us58Wn",
+				"AppClientIDWeb": "4rfukfbpbe8of0lara1o4it4h5",
+				"AppClientID": "4vp30mcgj5iju0fictmfsffiq0",
+				"IdentityPoolId": "us-east-1:4ef475b6-1d72-41a3-8528-585bf4a7298a",
+				"IdentityPoolName": "cloudUser__dev",
+				"UserPoolName": "cloudUsers"
 			},
-			"lastPushDirHash": "raXnooMSLT8h9ZCceFnnKSqCPRg="
+			"lastPushDirHash": "O12+vPVGmKUn8Z36m8qgd3QqcEs="
 		}
 	}
 }
