@@ -21,25 +21,35 @@ class StorageImage extends Component {
         })
     }
     postData = async () => { 
-        const iu = new FormData();
-        iu.append('image', this.state.file,this.state.filename);
         const apiName = 'cloudApp';
         const path = '/upload-image';
-        const myInit = { 
-          body:{ iu },
-          headers: { 
-            imageup: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`,
+        let blob = await fetch(this.state.fileUrl).then(response=>response.blob());
+        var reader = new FileReader();
+        reader.readAsDataURL(blob);
+        const filename = this.state.filename
+        reader.onloadend = async ()=>{
+          var base64data = reader.result.split(",")[1];
+          const myInit = { 
+            body:{ 
+              content:base64data,
+            filename:filename 
           },
-        };
-    
-        return await API.post(apiName, path, myInit)
-         .then(()=>{
-            console.log('successful save')
-            this.setState({fileUrl:'',file:'',filename:''})
-        })
-        .catch(err => {
-            console.log('upload fail',err)
-        });
+            headers: { 
+              'Content-Type': `application/json`,
+              Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`,
+            },
+          };
+      
+          return await API.post(apiName, path, myInit)
+           .then(()=>{
+              console.log('successful save')
+              this.setState({fileUrl:'',file:'',filename:''})
+          })
+          .catch(err => {
+              console.log('upload fail',err)
+          });
+        }
+
     }
 
   
