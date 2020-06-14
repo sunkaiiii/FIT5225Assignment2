@@ -6,6 +6,7 @@ import { Checkbox, Row, Col,Button } from 'antd';
 import a1 from './a1.png';
 import "antd/dist/antd.css";
 import './App.css';
+import Item from 'antd/lib/list/Item';
 
 
 
@@ -14,7 +15,7 @@ class StorageImage extends Component {
 
 
     
-    state = {fileUrl:'',file: '', filename: '',response:'', resp:'',tags:[],links:[]}
+    state = {fileUrl:'',file: '', filename: '',response:'', resp:'',tags:[],obj:[]}
     handleChange = e => {
         const file = e.target.files[0]
         this.setState({
@@ -66,21 +67,23 @@ class StorageImage extends Component {
   }
   getData = async () => {
     const apiName = 'cloudApp';
-    const path = '/search/get-tags'; 
+    const path = '/search/'; 
     const myInit = { 
         headers: {
           Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`,
         }, 
         response: true,
-        /* queryStringParameters: {
-            tag:  `${this.state.tags}`
-            },                 */
+         queryStringParameters: {
+           
+            tag1:`${this.state.tags[0]}`,
+            tag2:`${this.state.tags[1]}`,          
+            },                 
     };
 
     return await API.get(apiName, path, myInit)
-      .then(() => {
-        console.log("work!")
-        
+      .then((data) => {
+        console.log('checked = ', data);
+        this.setState({obj:data.data})
       })
       .catch(error => {
         console.log(error.response);
@@ -108,14 +111,17 @@ class StorageImage extends Component {
         <h3>search images by tags</h3>    
         <Checkbox.Group style={{ width: '100%' }}  onChange={this.onChangetag}>
       <Row>
-      <Col span={8}>
+      <Col span={6}>
         <Checkbox value="person" >person</Checkbox>
       </Col>
-      <Col span={8}>
+      <Col span={6}>
         <Checkbox value="elephant">elephant</Checkbox>
       </Col>
-      <Col span={8}>
+      <Col span={6}>
         <Checkbox value="umbrella">umbrella</Checkbox>
+      </Col>
+      <Col span={6}>
+        <Checkbox value="cat" >cat</Checkbox>
       </Col>
     </Row>
     </Checkbox.Group>,
@@ -129,6 +135,8 @@ class StorageImage extends Component {
      </Row>
       </div>
       </div>
+      
+     
         </AmplifyAuthenticator>
     );
     }
