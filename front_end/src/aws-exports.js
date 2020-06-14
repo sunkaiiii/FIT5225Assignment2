@@ -8,7 +8,7 @@ const awsmobile = {
     "aws_user_pools_id": "us-east-1_8q1Us58Wn",
     "aws_user_pools_web_client_id": "4rfukfbpbe8of0lara1o4it4h5",
     "oauth": {},
-    "federationTarget": "COGNITO_IDENTITY_POOLS",
+    "federationTarget": "COGNITO_IDENTITY_POOLS", //COGNITO_USER_POOLS
     "aws_cloud_logic_custom": [
         {
             "name": "cloudApp",

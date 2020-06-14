@@ -16,7 +16,12 @@
 
   --amplify-primary-color: #4285f4;
 }
-
+.p1{
+  text-align: center;
+}
+.img-p1{
+  height: 80%;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

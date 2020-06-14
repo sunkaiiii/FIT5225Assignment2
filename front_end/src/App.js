@@ -4,12 +4,17 @@ import home from './home.jpg';
 import history from './history';
 
 
+
 import './App.css';
 
 function App() {
   const federated = {
     googleClientId: "809481499442-vimc5m64loseslleop38cl0202l3o6kb.apps.googleusercontent.com",
-    oauthConfig: {
+    
+   /*  oauthConfig: {
+      "aws_cognito_region": "us-east-1",
+      "aws_user_pools_id": "us-east-1_8q1Us58Wn",
+      "aws_user_pools_web_client_id": "4rfukfbpbe8of0lara1o4it4h5",
       redirectSignIn: "http://localhost:3000/", //   if local test set it as:   redirectSignIn: "http://localhost:3000/",  online :https://master.d3nspps4hsc7d5.amplifyapp.com/
       redirectSignOut: "http://localhost:3000/",
       scope:[
@@ -18,7 +23,7 @@ function App() {
         "profile"
     ],
     responseType: "code" ,
-    }
+    }   */
   }
 
   return (
