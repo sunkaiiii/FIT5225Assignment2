@@ -6,6 +6,10 @@ from boto3.dynamodb.conditions import Attr, And
 def lambda_handler(event, context):
     if event["queryStringParameters"] is None:  # identify search tag exist or not
         return {
+            'headers': {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": True,
+            },
             "statusCode": 200,
             "body": json.dumps("please enter a tag"),
             "isBase64Encoded": "false"
@@ -26,6 +30,10 @@ def lambda_handler(event, context):
         result = {"links": []}
         [result["links"].append(item["link"]) for item in response["Items"]]
         return {
+            'headers': {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": True,
+            },
             "statusCode": 200,
             "body": json.dumps(result),
             "isBase64Encoded": "false"
