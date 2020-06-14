@@ -5,12 +5,13 @@
   "httpMethod": "GET",
   "isBase64Encoded": true,
   "queryStringParameters": {
-    "tag1": "person",
-    "tag2":"sports ball"
+    "tag1": "car",
+    "tag2": "umbrella",
+    "tag3": "person"
   },
   "multiValueQueryStringParameters": {
-    "foo": [
-      "bar"
+    "tags": [
+      "person"
     ]
   },
   "pathParameters": {
