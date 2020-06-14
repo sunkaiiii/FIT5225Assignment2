@@ -1,6 +1,6 @@
 import json
 def lambda_handler(event, context):
-    with open("coco.names") as file:
+    with open("coco.names") as file:   #get all the tags from coco.name
         result = {"tags": file.read().split("\n")}
         return {
             'headers': {
