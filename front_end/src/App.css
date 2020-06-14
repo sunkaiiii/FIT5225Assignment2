@@ -22,6 +22,9 @@
 .img-p1{
   height: 80%;
 }
+.img-p3{
+  text-align: center;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

@@ -6,7 +6,7 @@ import { Checkbox, Row, Col,Button } from 'antd';
 import a1 from './a1.png';
 import "antd/dist/antd.css";
 import './App.css';
-import Item from 'antd/lib/list/Item';
+
 
 
 
@@ -15,7 +15,7 @@ class StorageImage extends Component {
 
 
     
-    state = {fileUrl:'',file: '', filename: '',response:'', resp:'',tags:[],obj:[]}
+    state = {fileUrl:'',file: '', filename: '',response:'',res1:'',tags:[],images:[]}
     handleChange = e => {
         const file = e.target.files[0]
         this.setState({
@@ -33,7 +33,7 @@ class StorageImage extends Component {
         reader.readAsDataURL(blob);
         const filenamee = this.state.filename;
         reader.onloadend = async ()=>{
-          let base64data = reader.result.split(",")[1];
+        let base64data = reader.result.split(",")[1];
         const myInit = { 
           body:{ 
             content:base64data,
@@ -68,25 +68,32 @@ class StorageImage extends Component {
   getData = async () => {
     const apiName = 'cloudApp';
     const path = '/search/'; 
+    let parameter={}
+    let number = 1
+    this.state.tags.forEach(tag=>{
+      parameter["tag"+number]=tag;
+      number++;
+    });
+
     const myInit = { 
         headers: {
           Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`,
         }, 
-        response: true,
-         queryStringParameters: {
-           
-            tag1:`${this.state.tags[0]}`,
-            tag2:`${this.state.tags[1]}`,          
-            },                 
+         queryStringParameters: parameter,                
     };
 
     return await API.get(apiName, path, myInit)
       .then((data) => {
+        
         console.log('checked = ', data);
-        this.setState({obj:data.data})
+        this.setState({images:data.links})
+        if(this.state.images.length===0){
+          this.setState({res1: "no this image"});
+       }
+        console.log('checkedw = ', this.state.images);
       })
       .catch(error => {
-        console.log(error.response);
+        this.setState({res1: "no this image"})
     });
   }
 
@@ -111,17 +118,29 @@ class StorageImage extends Component {
         <h3>search images by tags</h3>    
         <Checkbox.Group style={{ width: '100%' }}  onChange={this.onChangetag}>
       <Row>
-      <Col span={6}>
+      <Col span={3}>
         <Checkbox value="person" >person</Checkbox>
       </Col>
-      <Col span={6}>
+      <Col span={3}>
         <Checkbox value="elephant">elephant</Checkbox>
       </Col>
-      <Col span={6}>
+      <Col span={3}>
         <Checkbox value="umbrella">umbrella</Checkbox>
       </Col>
-      <Col span={6}>
+      <Col span={3}>
         <Checkbox value="cat" >cat</Checkbox>
+      </Col>
+      <Col span={3}>
+        <Checkbox value="dog" >dog</Checkbox>
+      </Col>
+      <Col span={3}>
+        <Checkbox value="bus" >bus</Checkbox>
+      </Col>
+      <Col span={3}>
+        <Checkbox value="skateboard" >skateboard</Checkbox>
+      </Col>
+      <Col span={3}>
+        <Checkbox value="car" >car</Checkbox>
       </Col>
     </Row>
     </Checkbox.Group>,
@@ -135,7 +154,21 @@ class StorageImage extends Component {
      </Row>
       </div>
       </div>
-      
+      <div>
+      {!!this.state.res1 && <div>{this.state.res1}</div>}
+      {
+        this.state.images.map((links,i)=>(
+         <div className="img-p3">
+          <img
+          src={links}
+          alt="ii"
+          className="img-p2"
+          /> 
+          </div>
+        ))
+      }
+      </div>
+     
      
         </AmplifyAuthenticator>
     );
